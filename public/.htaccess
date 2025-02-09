@@ -14,7 +14,7 @@ Options -Indexes
 	# If you installed CodeIgniter in a subfolder, you will need to
 	# change the following line to match the subfolder you need.
 	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
-	RewriteBase /
+	#RewriteBase /
 
 	# Redirect Trailing Slashes...
 	RewriteCond %{REQUEST_FILENAME} !-d
@@ -24,7 +24,7 @@ Options -Indexes
 	# Rewrite "www.example.com -> example.com"
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]asdasd
+	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 
 	# Checks to see if the user is attempting to access a valid file,
 	# such as an image or css document, if this isn't true it sends the
@@ -36,8 +36,6 @@ Options -Indexes
 	# Ensure Authorization header is passed along
 	RewriteCond %{HTTP:Authorization} .
 	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-	RewriteRule ^adminlte/(.*)$ E:/Work/ci-sales-and-inventory/vendor/almasaeed2010/adminlte/$1 [NC,L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>

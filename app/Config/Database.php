@@ -57,7 +57,7 @@ class Database extends Config
     //     */
     //    public array $default = [
     //        'database'    => 'database.db',
-    //        'DBDriver'    => 'SQLite3',
+    //        'DBDriver'    => 'SQLite3`',
     //        'DBPrefix'    => '',
     //        'DBDebug'     => true,
     //        'swapPre'     => '',

@@ -15,19 +15,15 @@ class Products extends Model {
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
-        'item_id', 
-        'product_id',
-        'category_id',
-        'sold_qty',
-        'remaining_stock',
-        'remaining_threshold'
+        'name', 
+        'description'
     ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

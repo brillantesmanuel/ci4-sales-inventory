@@ -1,9 +1,9 @@
 <?php 
 
-function humanizer($date = '') {
+function humanizer($date = '', $format = 'F d, Y') {
     
     if ($date !== '') {
-        return date('F d, Y', strtotime($date));
+        return date($format, strtotime($date));
     }
 
     return false;

@@ -12,8 +12,14 @@ class Category extends BaseController
         //
         $model = new \App\Models\Category;
         
+        $search = '';
+        if ( $q = $this->request->getGet('q') ) {
+            $search = $q;
+        }
+
         $data = [
-            'categories' => $model->paginate(20, 'category'),
+            'search' => $search,
+            'categories' => $model->like('name', $search)->paginate(20, 'category'),
             'pager' => $model->pager
         ];
 
@@ -90,6 +96,22 @@ class Category extends BaseController
             ] );
         }
         
+        $model->update($id, [
+            'name' => $this->request->getPost('name'),
+            'description' => $this->request->getPost('description')
+        ]);
+
         return redirect()->to('category');
+    }
+
+    public function delete($id = null)
+    {
+        $model = new \App\Models\Category;
+
+        if ($model->find($id)) {
+            $model->delete($id);
+            
+            return redirect()->to('category');
+        }
     }
 }
